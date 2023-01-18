@@ -1,2 +1,2 @@
-# Knight-tales
- Projeto criando um jogo chamado Knight's tales.
+# Mage-tales
+ Projeto criando um jogo chamado Mage's tales.
