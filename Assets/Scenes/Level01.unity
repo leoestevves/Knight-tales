@@ -956,6 +956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f2d1b84f7612d47b79962f1cd955a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mageAnimator: {fileID: 1757799578}
   moveSpeed: 5
   groundCheck: {fileID: 1701530598}
   facingRight: 1
