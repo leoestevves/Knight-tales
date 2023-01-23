@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 136701621}
   - component: {fileID: 136701620}
   - component: {fileID: 136701619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TileCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -960,7 +960,11 @@ MonoBehaviour:
   moveSpeed: 5
   groundCheck: {fileID: 1701530598}
   facingRight: 1
+  isGround: 0
   sprite: {fileID: 1757799576}
+  jumpForce: 400
+  maxJumps: 1
+  delayAnimation: 0.02
 --- !u!70 &195004020
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2062,7 +2066,7 @@ GameObject:
   - component: {fileID: 1645309063}
   - component: {fileID: 1645309065}
   - component: {fileID: 1645309064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TileChao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5091,7 +5095,7 @@ GameObject:
   m_Layer: 0
   m_Name: groundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5103,7 +5107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701530597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.055, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
