@@ -896,6 +896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 195004016}
+  - component: {fileID: 195004021}
   - component: {fileID: 195004018}
   - component: {fileID: 195004020}
   - component: {fileID: 195004019}
@@ -964,7 +965,6 @@ MonoBehaviour:
   sprite: {fileID: 1757799576}
   jumpForce: 400
   maxJumps: 1
-  delayAnimation: 0.02
 --- !u!70 &195004020
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -981,6 +981,26 @@ CapsuleCollider2D:
   m_Offset: {x: -0.023076296, y: -1.0211282}
   m_Size: {x: 0.5461526, y: 1.9569316}
   m_Direction: 0
+--- !u!95 &195004021
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195004014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f725b13bdb6bf8340aaece8f2b5379da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &213715491
 GameObject:
   m_ObjectHideFlags: 0
@@ -5155,7 +5175,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757799576}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 247622854f6522c42804ef34886fa1f7, type: 2}
   m_CullingMode: 0

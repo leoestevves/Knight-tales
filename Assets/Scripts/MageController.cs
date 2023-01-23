@@ -25,8 +25,6 @@ public class MageController : MonoBehaviour
     private bool isFalling = false;
     private bool isLanding = false;
 
-    private float tempo;
-    public  float delayAnimation;
 
     
 
@@ -49,11 +47,7 @@ public class MageController : MonoBehaviour
 
         SetAnimations();
 
-       
-        Debug.Log(tempo);
-        Debug.Log(delayAnimation);
-
-
+     
         if (touchRun < 0 && facingRight || touchRun > 0 && !facingRight)
         {
             Flip();
@@ -80,7 +74,7 @@ public class MageController : MonoBehaviour
         sprite.transform.localScale = new Vector3(-sprite.transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
-    void JumpMage()
+    /*void JumpMage()
     {
         if (isGround)
         {
@@ -95,6 +89,26 @@ public class MageController : MonoBehaviour
             numberJumps++;
         }
         isJumping = false;        
+    }*/
+
+    void JumpMage()
+    {
+        if (isGround)
+        {
+            numberJumps = 0;
+        }
+
+        if (numberJumps < maxJumps)
+        {
+            isGround = false;
+            numberJumps++;
+        }
+        isJumping = false;
+    }
+
+    public void AddForceJumpMage()
+    {
+        mageRigidbody2D.AddForce(new Vector2(0f, jumpForce));
     }
 
     void SetAnimations()
