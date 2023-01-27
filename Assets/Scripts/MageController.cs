@@ -39,11 +39,10 @@ public class MageController : MonoBehaviour
     void Update()
     {
         isGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")); //Se tocar em algum tile colider, o isGround vira true
+        isLanding = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         mageAnimator.SetBool("IsGrounded", isGround); //Passando o true do isGround para o IsGrounded do animator
-        if (isGround)
-        {
-            isJumping = false;
-        }
+        mageAnimator.SetBool("IsLanding", isLanding);
+        
 
         touchRun = Input.GetAxisRaw("Horizontal");
         MoveMage();
@@ -87,30 +86,17 @@ public class MageController : MonoBehaviour
     {
         if (isGround)
         {
-            antecipateJump = true;          
-            Debug.Log(isGround);
-            yield return new WaitForSeconds(0.32f);
-            Debug.Log(isGround);
+            antecipateJump = true;                     
+            yield return new WaitForSeconds(0.30f);            
             antecipateJump = false;           
             mageRigidbody2D.velocity = Vector2.up * jumpForce;
-            isGround = false;
-            Debug.Log(isGround);
-            yield return new WaitWhile(() => isJumping);
-            Debug.Log(isGround);
-            isLanding = true;
-            yield return new WaitForSeconds(0.3f);
-            Debug.Log(isLanding);
-            isLanding = false;
+            isJumping = true;
         }
-        isJumping = false;
         
-        /*if(isGround && (isJumping = false))
-        {
-            isLanding = true;
-            yield return new WaitForSeconds(0.3f);
-            Debug.Log(isLanding);
-            isLanding = false;
-        }*/
+        
+        
+        
+        
         
     }
 
@@ -122,7 +108,7 @@ public class MageController : MonoBehaviour
         mageAnimator.SetBool("Running", mageRigidbody2D.velocity.x != 0 && isGround);
         mageAnimator.SetBool("IsJumping", !isGround);
         mageAnimator.SetBool("AntecipateJump", antecipateJump);
-        mageAnimator.SetBool("IsLanding", isLanding);
+        //mageAnimator.SetBool("IsLanding", (isLanding) && (isJumping = false));
     }
 
 }
