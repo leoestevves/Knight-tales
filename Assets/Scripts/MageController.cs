@@ -18,12 +18,11 @@ public class MageController : MonoBehaviour
     public  GameObject  sprite; // Pegando o gameobject filho sprite, gameobject dos sprites e animações
 
     public  float       jumpForce;
-    //private int         numberJumps;
-    //public  int         maxJumps;
+    
 
-    private bool isJumping = false;
-    //private bool isFalling = false;
-    //private bool isLanding = false;
+    public bool isJumping = false;
+    public bool antecipateJump = false;
+    public bool isLanding = false;
 
 
     
@@ -41,6 +40,10 @@ public class MageController : MonoBehaviour
     {
         isGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")); //Se tocar em algum tile colider, o isGround vira true
         mageAnimator.SetBool("IsGrounded", isGround); //Passando o true do isGround para o IsGrounded do animator
+        if (isGround)
+        {
+            isJumping = false;
+        }
 
         touchRun = Input.GetAxisRaw("Horizontal");
         MoveMage();
@@ -53,7 +56,8 @@ public class MageController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-            JumpMage();
+            StartCoroutine(JumpMage());
+            //StartCoroutine("JumpMage");
         }
         
     }
@@ -63,7 +67,7 @@ public class MageController : MonoBehaviour
     void MoveMage()
     {
         
-        mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, 0f);
+        mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
         //mageAnimator.SetBool("Running", mageRigidbody2D.velocity.x != 0);
 
         if (touchRun < 0 && facingRight || touchRun > 0 && !facingRight)
@@ -79,48 +83,46 @@ public class MageController : MonoBehaviour
         sprite.transform.localScale = new Vector3(-sprite.transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
-    void JumpMage()
+    IEnumerator JumpMage()
     {
         if (isGround)
         {
+            antecipateJump = true;          
             Debug.Log(isGround);
-            mageAnimator.SetBool("IsJumping", true);            
-        }
-        Debug.Log(isGround + "olá");
-               
-    }
-
-    /*void JumpMage()
-    {
-        if (isGround)
-        {
-            numberJumps = 0;
-        }
-
-        if (numberJumps < maxJumps)
-        {
+            yield return new WaitForSeconds(0.32f);
+            Debug.Log(isGround);
+            antecipateJump = false;           
+            mageRigidbody2D.velocity = Vector2.up * jumpForce;
             isGround = false;
-            numberJumps++;
-            mageAnimator.SetBool("IsJumping", !isGround);
+            Debug.Log(isGround);
+            yield return new WaitWhile(() => isJumping);
+            Debug.Log(isGround);
+            isLanding = true;
+            yield return new WaitForSeconds(0.3f);
+            Debug.Log(isLanding);
+            isLanding = false;
         }
         isJumping = false;
-    }*/
-
-    public void AddForceJumpMage()
-    {
         
-        mageRigidbody2D.AddForce(new Vector2(0f, jumpForce));
+        /*if(isGround && (isJumping = false))
+        {
+            isLanding = true;
+            yield return new WaitForSeconds(0.3f);
+            Debug.Log(isLanding);
+            isLanding = false;
+        }*/
         
-        isJumping = false;
-        Debug.Log(isJumping);
-        mageAnimator.SetBool("IsJumping", false);
     }
+
 
     void SetAnimations()
     {
+        
         mageAnimator.SetFloat("EixoY", mageRigidbody2D.velocity.y);
         mageAnimator.SetBool("Running", mageRigidbody2D.velocity.x != 0 && isGround);
-        //mageAnimator.SetBool("IsJumping", !isGround);
+        mageAnimator.SetBool("IsJumping", !isGround);
+        mageAnimator.SetBool("AntecipateJump", antecipateJump);
+        mageAnimator.SetBool("IsLanding", isLanding);
     }
 
 }

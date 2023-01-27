@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MageLight_Hurt
+  m_Name: ML_Jump
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1167159437, guid: 91892e3388ba69845bcca87d3827894f, type: 3}
+      value: {fileID: -2066833902, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
     - time: 0.125
-      value: {fileID: -105018952, guid: 91892e3388ba69845bcca87d3827894f, type: 3}
+      value: {fileID: 1879061849, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
     - time: 0.25
-      value: {fileID: 1176716716, guid: 91892e3388ba69845bcca87d3827894f, type: 3}
+      value: {fileID: -546772552, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
+    - time: 0.375
+      value: {fileID: -163618800, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
     attribute: m_Sprite
     path: Sprite
     classID: 212
@@ -44,15 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1167159437, guid: 91892e3388ba69845bcca87d3827894f, type: 3}
-    - {fileID: -105018952, guid: 91892e3388ba69845bcca87d3827894f, type: 3}
-    - {fileID: 1176716716, guid: 91892e3388ba69845bcca87d3827894f, type: 3}
+    - {fileID: -2066833902, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
+    - {fileID: 1879061849, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
+    - {fileID: -546772552, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
+    - {fileID: -163618800, guid: 9f7388311fe9ac4419a3f10756aa601e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
