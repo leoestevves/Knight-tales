@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 
 public class MageController : MonoBehaviour
@@ -24,6 +25,9 @@ public class MageController : MonoBehaviour
     public bool antecipateJump = false;
     public bool isLanding = false;
 
+    
+    public int combo;
+    public bool isAttacking;
 
     
 
@@ -47,17 +51,19 @@ public class MageController : MonoBehaviour
         touchRun = Input.GetAxisRaw("Horizontal");
         MoveMage();
 
-        SetAnimations();
-
-     
-        
+        SetAnimations();        
 
         if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
-            StartCoroutine(JumpMage());
-            //StartCoroutine("JumpMage");
+            StartCoroutine(JumpMage());            
         }
+
+        AttackCombo();
+       
+
+
+
         
     }
 
@@ -65,20 +71,21 @@ public class MageController : MonoBehaviour
 
     void MoveMage()
     {
-        
-        mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
-        //mageAnimator.SetBool("Running", mageRigidbody2D.velocity.x != 0);
-
-        if (touchRun < 0 && facingRight || touchRun > 0 && !facingRight)
+        if (isAttacking == false)
         {
-            Flip();
+            mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
+
+            if (touchRun < 0 && facingRight || touchRun > 0 && !facingRight)
+            {
+                Flip();
+            }
         }
+        
     }
 
     void Flip()
     {
-        facingRight = !facingRight;
-        
+        facingRight = !facingRight;        
         sprite.transform.localScale = new Vector3(-sprite.transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
@@ -91,24 +98,40 @@ public class MageController : MonoBehaviour
             antecipateJump = false;           
             mageRigidbody2D.velocity = Vector2.up * jumpForce;
             isJumping = true;
-        }
-        
-        
-        
-        
-        
-        
+        }        
     }
 
 
     void SetAnimations()
-    {
-        
+    {        
         mageAnimator.SetFloat("EixoY", mageRigidbody2D.velocity.y);
         mageAnimator.SetBool("Running", mageRigidbody2D.velocity.x != 0 && isGround);
         mageAnimator.SetBool("IsJumping", !isGround);
         mageAnimator.SetBool("AntecipateJump", antecipateJump);
-        //mageAnimator.SetBool("IsLanding", (isLanding) && (isJumping = false));
+        
     }
 
+   public void AttackCombo()
+    {
+        if (Input.GetMouseButtonDown(0) && !isAttacking)
+        {
+            isAttacking = true;
+            mageAnimator.SetTrigger("" + combo);
+        }
+    }
+    
+    public void StartCombo()
+    {
+        isAttacking = false;
+        if(combo < 2)
+        {
+            combo++;
+        }
+    }
+
+    public void finishAttackCombo()
+    {
+        isAttacking = false;
+        combo = 0;
+    }
 }
