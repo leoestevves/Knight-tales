@@ -7,8 +7,7 @@ using UnityEngine;
 public class MageController : MonoBehaviour
 {
     private  Animator    mageAnimator; //Adicionando o animator do gameobject sprite (filho)
-    private Animation mageAnimation;
-
+    
     private Rigidbody2D mageRigidbody2D;
     public  float       moveSpeed;
     private float       touchRun = 0.0f;
@@ -28,16 +27,13 @@ public class MageController : MonoBehaviour
 
     
     public int combo;
-    public bool isAttacking;
-
-    public float fixAnimation = 0.2f;
+    public bool isAttacking;    
 
     
 
     // Start is called before the first frame update
     void Start()
     {
-        mageAnimation = GetComponent<Animation>();
         mageAnimator = GetComponent<Animator>();
         mageRigidbody2D = GetComponent<Rigidbody2D>(); //Adicionando Rigidbody a variável
         sprite = transform.GetChild(0).gameObject;
@@ -49,8 +45,7 @@ public class MageController : MonoBehaviour
         isGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")); //Se tocar em algum tile colider, o isGround vira true
         isLanding = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         mageAnimator.SetBool("IsGrounded", isGround); //Passando o true do isGround para o IsGrounded do animator
-        mageAnimator.SetBool("IsLanding", isLanding);
-        
+        mageAnimator.SetBool("IsLanding", isLanding);        
 
         touchRun = Input.GetAxisRaw("Horizontal");
         MoveMage();
@@ -91,7 +86,7 @@ public class MageController : MonoBehaviour
     {
         facingRight = !facingRight;        
         sprite.transform.localScale = new Vector3(-sprite.transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        //sprite.transform.position = new Vector3(-sprite.transform.position.x, transform.position.y, transform.position.z);
+        
     }
 
     IEnumerator JumpMage()
@@ -138,17 +133,5 @@ public class MageController : MonoBehaviour
     {
         isAttacking = false;
         combo = 0;
-    }
-
-    public void FlipSprite()
-    {
-        Debug.Log(facingRight);
-        if(facingRight == false)
-        {
-            sprite.transform.position = new Vector2(sprite.transform.position.x - fixAnimation, sprite.transform.position.y);
-            
-            Debug.Log(sprite.transform.position.x);
-        }
-        
-    }
+    }    
 }
