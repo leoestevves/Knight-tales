@@ -9,7 +9,7 @@ using UnityEngine;
 public class MageAttack : MonoBehaviour
 {
     private Animator mageAnimator;
-    //private EnemyDamage _EnemyDamage; //Pegando o script EnemyDamage
+    public EnemyDamage _enemyDamage; //Pegando o script EnemyDamage
 
     public int combo;
     public bool isAttacking;
@@ -18,7 +18,7 @@ public class MageAttack : MonoBehaviour
     public LayerMask enemyLayers;
 
     public float attackRange = 0.5f;
-    public int attackDamage = 40;
+    public int attackDamage = 100;
 
 
 
@@ -26,7 +26,7 @@ public class MageAttack : MonoBehaviour
     void Start()
     {
         mageAnimator = GetComponent<Animator>();
-        //_EnemyDamage = GetComponent<EnemyDamage>();
+        _enemyDamage = GameObject.Find("IAEnemyWolf").GetComponent<EnemyDamage>();
     }
 
     // Update is called once per frame
@@ -74,14 +74,20 @@ public class MageAttack : MonoBehaviour
     public void DetectEnemy()
     {
         //Detect enemy
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers); //Detecção dos inimigos
+        
         //Damage
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("dano");
+            _enemyDamage.TakeDamage(attackDamage);
         }
     }
+
+
+
+
+
+
 
 
 }

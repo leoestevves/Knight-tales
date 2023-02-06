@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
+    public Animator animator;
+    public GameObject wolf;
+    public IAWolf iAWolf;
+
     public int maxHealth;
     int currentHealth;
 
@@ -11,7 +15,11 @@ public class EnemyDamage : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {       
+    {
+        animator = GetComponent<Animator>();
+        wolf = transform.GetChild(0).gameObject;
+        iAWolf = GetComponent<IAWolf>();
+
         currentHealth = maxHealth;
     }
 
@@ -29,8 +37,26 @@ public class EnemyDamage : MonoBehaviour
     public void Die()
     {
         Debug.Log("Enemy died");
+
         //Die animation
+        animator.SetBool("isDead", true);
 
         //Disable the enemy
+        wolf.GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+        TurnOff(); //Desabilita o script de movimentação do inimigo
+
+
+    }
+    
+    public void Destroy()
+    {
+        Destroy(gameObject);
+        
+    }
+    
+    public void TurnOff()
+    {
+        iAWolf.enabled = false;
     }
 }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wolf_Walk
+  m_Name: Wolf1_Walk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -36,7 +36,7 @@ AnimationClip:
     - time: 0.7
       value: {fileID: 1588766062, guid: 290f3cda785b96e4ca6fc88f9c6457d0, type: 3}
     attribute: m_Sprite
-    path: Wolf
+    path: 
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 10
@@ -47,7 +47,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1502381276
+      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 212
