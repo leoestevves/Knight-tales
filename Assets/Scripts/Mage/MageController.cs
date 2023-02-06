@@ -4,10 +4,13 @@ using System.Threading;
 using UnityEditor.TextCore.Text;
 using UnityEngine;
 
+/*
+ Script de movimentação e parte básico do jogador
+*/
+
 public class MageController : MonoBehaviour
 {
-    private  Animator    mageAnimator; //Adicionando o animator do gameobject sprite (filho)
-    
+    private  Animator    mageAnimator;    
     private Rigidbody2D mageRigidbody2D;
     public  float       moveSpeed;
     private float       touchRun = 0.0f;
@@ -17,26 +20,23 @@ public class MageController : MonoBehaviour
     public  bool        isGround = false;
 
     public  GameObject  sprite; // Pegando o gameobject filho sprite, gameobject dos sprites e animações
+    public  MageAttack _mageAttack; //Pegando o script MageAttack
 
-    public  float       jumpForce;
-    
+    public  float       jumpForce;    
 
     public bool isJumping = false;
     public bool antecipateJump = false;
-    public bool isLanding = false;
-
-    
-    public int combo;
-    public bool isAttacking;    
+    public bool isLanding = false;         
 
     
 
     // Start is called before the first frame update
     void Start()
     {
-        mageAnimator = GetComponent<Animator>();
+        mageAnimator    = GetComponent<Animator>();
         mageRigidbody2D = GetComponent<Rigidbody2D>(); //Adicionando Rigidbody a variável
-        sprite = transform.GetChild(0).gameObject;
+        sprite          = transform.GetChild(0).gameObject;
+        _mageAttack     = GetComponent<MageAttack>();
     }
 
     // Update is called once per frame
@@ -56,21 +56,14 @@ public class MageController : MonoBehaviour
         {
             isJumping = true;
             StartCoroutine(JumpMage());            
-        }
-
-        AttackCombo();
-       
-
-
-
-        
+        }             
     }
 
     
 
     void MoveMage()
     {
-        if (isAttacking == false)
+        if (_mageAttack.isAttacking == false)
         {
             mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
 
@@ -110,28 +103,5 @@ public class MageController : MonoBehaviour
         mageAnimator.SetBool("AntecipateJump", antecipateJump);
         
     }
-
-   public void AttackCombo()
-    {
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
-        {
-            isAttacking = true;
-            mageAnimator.SetTrigger("" + combo);
-        }
-    }
-    
-    public void StartCombo()
-    {
-        isAttacking = false;
-        if(combo < 2)
-        {
-            combo++;
-        }
-    }
-
-    public void FinishAttackCombo()
-    {
-        isAttacking = false;
-        combo = 0;
-    }    
+         
 }
