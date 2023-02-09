@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class MageAttack : MonoBehaviour
 {
-    private Animator mageAnimator;
-    public EnemyDamage _enemyDamage; //Pegando o script EnemyDamage
+    private Animator mageAnimator;    
+    
 
     public int combo;
     public bool isAttacking;
@@ -26,7 +26,11 @@ public class MageAttack : MonoBehaviour
     void Start()
     {
         mageAnimator = GetComponent<Animator>();
-        _enemyDamage = GameObject.Find("IAEnemyWolf").GetComponent<EnemyDamage>();
+        
+        
+        
+        
+        
     }
 
     // Update is called once per frame
@@ -63,6 +67,9 @@ public class MageAttack : MonoBehaviour
         combo = 0;
     }
 
+
+
+    /*
     public void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
@@ -71,23 +78,28 @@ public class MageAttack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    public void DetectEnemy()
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        //Detect enemy
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers); //Detecção dos inimigos
         
-        //Damage
-        foreach (Collider2D enemy in hitEnemies)
+
+        if (collision.gameObject.TryGetComponent<EnemyDamage>(out EnemyDamage enemyComponent))
         {
-            _enemyDamage.TakeDamage(attackDamage);
+            enemyComponent.TakeDamage(1);
         }
     }
 
 
+    /*public void DetectEnemy()
+    {
+        //Detect enemy
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);//Detecção dos inimigos
 
-
-
-
-
-
-}
+        
+        //Damage
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            //_enemyDamage = FindObjectOfType(typeof(EnemyDamage)) as EnemyDamage;
+            _enemyDamage.TakeDamage(attackDamage);
+        }*/ 
+    }

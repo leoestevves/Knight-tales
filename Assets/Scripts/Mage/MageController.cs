@@ -26,8 +26,9 @@ public class MageController : MonoBehaviour
 
     public bool isJumping = false;
     public bool antecipateJump = false;
-    public bool isLanding = false;         
+    public bool isLanding = false;
 
+    public Transform attackPoint;
     
 
     // Start is called before the first frame update
@@ -78,7 +79,7 @@ public class MageController : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;        
-        sprite.transform.localScale = new Vector3(-sprite.transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         
     }
 

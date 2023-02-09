@@ -12,6 +12,8 @@ public class IAWolf : MonoBehaviour
 
     private int idTarget;
 
+    public bool enableScript = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class IAWolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemy != null)
+        if(enemy != null && enableScript)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, position[idTarget].position, speed * Time.deltaTime);
 

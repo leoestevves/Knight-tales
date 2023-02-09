@@ -10,6 +10,7 @@ public class EnemyDamage : MonoBehaviour
 
     public int maxHealth;
     int currentHealth;
+    
 
 
 
@@ -43,7 +44,7 @@ public class EnemyDamage : MonoBehaviour
 
         //Disable the enemy
         wolf.GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        //this.enabled = false;
         TurnOff(); //Desabilita o script de movimentação do inimigo
 
 
@@ -51,12 +52,12 @@ public class EnemyDamage : MonoBehaviour
     
     public void Destroy()
     {
-        Destroy(gameObject);
+        Destroy(wolf.gameObject);
         
     }
     
     public void TurnOff()
     {
-        iAWolf.enabled = false;
+        iAWolf.enableScript = false;
     }
 }
