@@ -8,8 +8,7 @@ using UnityEngine;
 
 public class MageAttack : MonoBehaviour
 {
-    private Animator mageAnimator;    
-    
+    private Animator mageAnimator;
 
     public int combo;
     public bool isAttacking;
@@ -20,17 +19,16 @@ public class MageAttack : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 100;
 
+    
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         mageAnimator = GetComponent<Animator>();
-        
-        
-        
-        
-        
+
     }
 
     // Update is called once per frame
@@ -57,7 +55,9 @@ public class MageAttack : MonoBehaviour
         isAttacking = false;
         if (combo < 2)
         {
-            combo++;                       
+            combo++;
+            
+
         }
     }
 
@@ -68,8 +68,6 @@ public class MageAttack : MonoBehaviour
     }
 
 
-
-    /*
     public void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
@@ -79,27 +77,23 @@ public class MageAttack : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-
-        if (collision.gameObject.TryGetComponent<EnemyDamage>(out EnemyDamage enemyComponent))
-        {
-            enemyComponent.TakeDamage(1);
-        }
-    }
-
-
-    /*public void DetectEnemy()
+    public void DetectEnemy()
     {
         //Detect enemy
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);//Detecção dos inimigos
 
         
+
+
+        /*
         //Damage
         foreach (Collider2D enemy in hitEnemies)
         {
-            //_enemyDamage = FindObjectOfType(typeof(EnemyDamage)) as EnemyDamage;
+            var _enemyDamage = GetComponent<EnemyDamage>();
             _enemyDamage.TakeDamage(attackDamage);
-        }*/ 
+        }*/
     }
+
+
+
+}

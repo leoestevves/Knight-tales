@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     public Animator animator;
-    public GameObject wolf;
-    public IAWolf iAWolf;
+    //public GameObject wolf;
+    //public IAWolf iAWolf;
 
     public int maxHealth;
     int currentHealth;
+
+    public bool enableScriptWolf = true;
     
 
 
@@ -18,8 +20,8 @@ public class EnemyDamage : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        wolf = transform.GetChild(0).gameObject;
-        iAWolf = GetComponent<IAWolf>();
+        //wolf = transform.GetChild(0).gameObject;
+        //iAWolf = GetComponent<IAWolf>();
 
         currentHealth = maxHealth;
     }
@@ -38,7 +40,7 @@ public class EnemyDamage : MonoBehaviour
     public void Die()
     {
         Debug.Log("Enemy died");
-
+        /*
         //Die animation
         animator.SetBool("isDead", true);
 
@@ -46,18 +48,19 @@ public class EnemyDamage : MonoBehaviour
         wolf.GetComponent<Collider2D>().enabled = false;
         //this.enabled = false;
         TurnOff(); //Desabilita o script de movimentação do inimigo
-
+        */
 
     }
     
+        /*
     public void Destroy()
     {
-        Destroy(wolf.gameObject);
+        Destroy(gameObject);
         
     }
     
     public void TurnOff()
     {
-        iAWolf.enableScript = false;
-    }
+        enableScriptWolf = false;
+    }*/
 }

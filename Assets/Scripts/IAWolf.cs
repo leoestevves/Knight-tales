@@ -12,11 +12,13 @@ public class IAWolf : MonoBehaviour
 
     private int idTarget;
 
-    public bool enableScript = true;
+    public EnemyDamage _enemyDamage;
 
     // Start is called before the first frame update
     void Start()
     {
+        _enemyDamage = GetComponent<EnemyDamage>();
+
         enemySprite = enemy.GetComponent<SpriteRenderer>();
         enemy.position = position[0].position;
         idTarget = 1;        
@@ -25,7 +27,7 @@ public class IAWolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemy != null && enableScript)
+        if((enemy != null) && _enemyDamage.enableScriptWolf == true)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, position[idTarget].position, speed * Time.deltaTime);
 
