@@ -104,5 +104,11 @@ public class MageController : MonoBehaviour
         mageAnimator.SetBool("AntecipateJump", antecipateJump);
         
     }
+
+
+    public bool canAttack()
+    {
+        return touchRun == 0 && isGround;
+    }
          
 }
