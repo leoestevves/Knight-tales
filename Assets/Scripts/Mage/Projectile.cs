@@ -8,14 +8,15 @@ public class Projectile : MonoBehaviour
     private bool hit;
     private float direction;
 
-
+    
     private BoxCollider2D boxCollider;
     private Animator anim;
 
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();        
+        
     }
 
     private void Update()
@@ -24,6 +25,8 @@ public class Projectile : MonoBehaviour
 
         float movementSpeed = speed * Time.deltaTime * direction;
         transform.Translate(movementSpeed, 0, 0);
+
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,5 +58,7 @@ public class Projectile : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+           
 
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a20008cf2dc5ee48932310a961b564c
+guid: b9cfa695d0797a64ba5c113af42bfcea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,85 +117,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hurt_0
+      name: Magic_arrow_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 49
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e970d7560a153845bdec9554089c69c
-      internalID: -1583695657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hurt_1
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 0
-        width: 42
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 973d29211616a784f8100f013851c1e6
-      internalID: -1951585220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hurt_2
-      rect:
-        serializedVersion: 2
-        x: 294
+        x: 36
         y: 0
         width: 41
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c896e486ebe9b6449389d30911f722e
-      internalID: 999848816
+      spriteID: 65d82324c1beac542837b5ae4a48c715
+      internalID: -912959908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hurt_3
+      name: Magic_arrow_1
       rect:
         serializedVersion: 2
-        x: 419
+        x: 162
         y: 0
         width: 49
         height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2e5a4d3bf7e7484c84d950046544968
-      internalID: 127514188
+      spriteID: b2fa31c1a873c7346a7fda3bcb03c266
+      internalID: 1019496487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_arrow_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 0
+        width: 56
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741c9ebced6ae78409956eb5f33d49a1
+      internalID: 2036900450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_arrow_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 56
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9c2dba61b3a334f8587690ec301931
+      internalID: 873343501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_arrow_4
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 0
+        width: 56
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b313b512e2fd208409442fd57c0c9625
+      internalID: 559923438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic_arrow_5
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 0
+        width: 56
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591fbaa4ec85db64dbda44d0fc3e6771
+      internalID: 972124505
       vertices: []
       indices: 
       edges: []
@@ -211,10 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hurt_0: -1583695657
-      Hurt_2: 999848816
-      Hurt_1: -1951585220
-      Hurt_3: 127514188
+      Magic_arrow_5: 972124505
+      Magic_arrow_0: -912959908
+      Magic_arrow_3: 873343501
+      Magic_arrow_1: 1019496487
+      Magic_arrow_2: 2036900450
+      Magic_arrow_4: 559923438
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -64,6 +64,7 @@ public class MageController : MonoBehaviour
 
     void MoveMage()
     {
+        /*
         if (_mageAttack.isAttacking == false)
         {
             mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
@@ -73,7 +74,15 @@ public class MageController : MonoBehaviour
                 Flip();
             }
         }
-        
+        */
+        mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
+
+        if (touchRun < 0 && facingRight || touchRun > 0 && !facingRight)
+        {
+            Flip();
+        }
+
+
     }
 
     void Flip()
