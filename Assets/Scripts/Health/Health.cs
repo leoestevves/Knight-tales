@@ -12,10 +12,13 @@ public class Health : MonoBehaviour
     private bool dead;
 
 
-    [Header("Health")]
+    [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private float numberOfFlashes;
     [SerializeField] private SpriteRenderer spriteRend;
+
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
 
     private void Awake()
     {
@@ -38,6 +41,7 @@ public class Health : MonoBehaviour
             {
                 anim.SetTrigger("die");
 
+                /*
                 //Player
                 if(GetComponent<MageController>() != null)
                     GetComponent<MageController>().enabled = false;
@@ -48,6 +52,11 @@ public class Health : MonoBehaviour
 
                 if(GetComponent<MeleeEnemyWolf>() != null)
                     GetComponent<MeleeEnemyWolf>().enabled = false;
+                */
+                //Deactivate all attached components
+                foreach (Behaviour component in components)
+                    component.enabled = false;
+
 
                 dead = true;
             }
