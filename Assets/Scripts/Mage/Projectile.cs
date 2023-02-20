@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     private bool hit;
     private float direction;
 
+    [SerializeField] private float resetTime;
+    private float lifetime;
     
     private BoxCollider2D boxCollider;
     private Animator anim;
@@ -26,7 +28,11 @@ public class Projectile : MonoBehaviour
         float movementSpeed = speed * Time.deltaTime * direction;
         transform.Translate(movementSpeed, 0, 0);
 
-       
+        lifetime += Time.deltaTime;
+        if (lifetime > resetTime)
+            gameObject.SetActive(false);
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,6 +51,7 @@ public class Projectile : MonoBehaviour
         gameObject.SetActive(true);
         hit = false;
         boxCollider.enabled = true;
+        lifetime = 0;
 
 
         float localScaleX = transform.localScale.x; //Flip
