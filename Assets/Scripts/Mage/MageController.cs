@@ -119,5 +119,27 @@ public class MageController : MonoBehaviour
     {
         return touchRun == 0 && isGround;
     }
-         
+
+
+    //Transformando o player em filho do objeto plataforma, dessa forma o player se movimenta junto com a plataforma
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Platform":
+                this.transform.parent = collision.transform;
+                break;
+        }
+    }
+
+    //Retirando o player como filho do objeto plataforma
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Platform":
+                this.transform.parent = null;
+                break;
+        }
+    }
 }

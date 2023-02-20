@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - GameMusic
+  - Platform
   layers:
   - Default
   - TransparentFX
