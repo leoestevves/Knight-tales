@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 3
-  range: 11
+  range: 9
   damage: 1
   firepoint: {fileID: 3787657558147219507}
   iceArrows:
@@ -212,7 +212,7 @@ MonoBehaviour:
   - {fileID: 512186017165049355}
   - {fileID: 512186017085976728}
   - {fileID: 512186018365243463}
-  colliderDistance: 0.465
+  colliderDistance: 0.485
   boxCollider: {fileID: 3787657558189567728}
   playerLayer:
     serializedVersion: 2
