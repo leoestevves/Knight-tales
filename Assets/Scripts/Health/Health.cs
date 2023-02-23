@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
     private Animator anim;
-    private bool dead;
+    private bool dead;    
 
 
     [Header("iFrames")]
@@ -19,6 +19,9 @@ public class Health : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
+
+    [Header("UIManager")]
+    [SerializeField] private UIManager uiManager;
 
     private void Awake()
     {
@@ -40,6 +43,7 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
+                
 
                 /*
                 //Player
@@ -92,8 +96,14 @@ public class Health : MonoBehaviour
     } 
 
 
-    private void Deactivate()
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);   
+    }
+
+    private void DeactivatePlayer()
     {
         gameObject.SetActive(false);
+        uiManager.GameOverScreen();
     }
 }
