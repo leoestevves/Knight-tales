@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [Header ("Referências")]
+    [Header("References")]
     [SerializeField] private Health playerHealth;
-
     [SerializeField] private GameObject gameOverScreen;
 
-    //Pause
-    [SerializeField] private static bool gameIsPaused = false;
+    [Header("Pause")]
     [SerializeField] private GameObject pauseMenuUI;
+
+    public bool gameIsPaused = false;
 
     [Header("EndGame")]
     [SerializeField] private Transform playerTransform;

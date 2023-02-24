@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3787657558189567728}
   - component: {fileID: 3787657558189567731}
   - component: {fileID: 3787657558189567730}
+  - component: {fileID: 2539728354863457493}
   m_Layer: 11
   m_Name: IceMage
   m_TagString: Enemy
@@ -150,7 +151,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.26927757, y: -1.0103345}
@@ -185,6 +186,7 @@ MonoBehaviour:
   components:
   - {fileID: 3787657558189567730}
   - {fileID: 0}
+  uiManager: {fileID: 0}
 --- !u!114 &3787657558189567730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +219,19 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &2539728354863457493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3787657558189567726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9e5107e6a76147b6d9cf7e8c9bf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &3787657558628461599
 GameObject:
   m_ObjectHideFlags: 0

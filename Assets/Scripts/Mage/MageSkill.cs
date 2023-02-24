@@ -9,6 +9,9 @@ public class MageSkill : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] lightningballs;
 
+    [Header("References")]
+    [SerializeField] private UIManager uiManager;
+
     private Animator anim;
     private MageController mageController;
     private float cooldownTimer = Mathf.Infinity;
@@ -22,12 +25,16 @@ public class MageSkill : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && mageController.canAttack())
+        if(uiManager.gameIsPaused == false)
         {
-            Skill();
-        }
+            if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && mageController.canAttack())
+            {
+                Skill();
+            }
 
-        cooldownTimer += Time.deltaTime;
+            cooldownTimer += Time.deltaTime;
+        }
+        
     }
 
     private void Skill()

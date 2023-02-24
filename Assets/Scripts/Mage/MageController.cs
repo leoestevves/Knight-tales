@@ -10,25 +10,29 @@ using UnityEngine;
 
 public class MageController : MonoBehaviour
 {
-    private  Animator    mageAnimator;    
-    private Rigidbody2D mageRigidbody2D;
-    public  float       moveSpeed;
-    private float       touchRun = 0.0f;
+    private Animator       mageAnimator;
+    private Rigidbody2D    mageRigidbody2D;
 
-    public  Transform   groundCheck;
-    public  bool        facingRight = true;
-    public  bool        isGround = false;
+    [Header ("Components")]
+    [SerializeField] private Transform  groundCheck;
+    [SerializeField] private GameObject sprite; // Pegando o gameobject filho sprite, gameobject dos sprites e animações
 
-    public  GameObject  sprite; // Pegando o gameobject filho sprite, gameobject dos sprites e animações
-    public  MageAttack _mageAttack; //Pegando o script MageAttack
+    [Header ("References")]
+    [SerializeField] private UIManager uiManager;
 
-    public  float       jumpForce;    
+    [Header ("Movement")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private bool facingRight = true;
+    [SerializeField] private bool isGround = false;
+    private float touchRun = 0.0f;    
 
-    public bool isJumping = false;
-    public bool antecipateJump = false;
-    public bool isLanding = false;
+    [Header ("Jump attributes")]
+    [SerializeField] private float    jumpForce;
+    //[SerializeField] private bool     isJumping       = false;
+    [SerializeField] private bool     antecipateJump  = false;
+    [SerializeField] private bool     isLanding       = false;
 
-    public Transform attackPoint;
+    //[SerializeField] private Transform attackPoint;
     
 
     // Start is called before the first frame update
@@ -36,8 +40,7 @@ public class MageController : MonoBehaviour
     {
         mageAnimator    = GetComponent<Animator>();
         mageRigidbody2D = GetComponent<Rigidbody2D>(); //Adicionando Rigidbody a variável
-        sprite          = transform.GetChild(0).gameObject;
-        _mageAttack     = GetComponent<MageAttack>();
+        sprite          = transform.GetChild(0).gameObject;        
     }
 
     // Update is called once per frame
@@ -46,35 +49,29 @@ public class MageController : MonoBehaviour
         isGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground")); //Se tocar em algum tile colider, o isGround vira true
         isLanding = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         mageAnimator.SetBool("IsGrounded", isGround); //Passando o true do isGround para o IsGrounded do animator
-        mageAnimator.SetBool("IsLanding", isLanding);        
+        mageAnimator.SetBool("IsLanding", isLanding);
 
-        touchRun = Input.GetAxisRaw("Horizontal");
-        MoveMage();
 
-        SetAnimations();        
-
-        if (Input.GetButtonDown("Jump"))
+        if (uiManager.gameIsPaused == false)
         {
-            isJumping = true;
-            StartCoroutine(JumpMage());            
-        }             
+            touchRun = Input.GetAxisRaw("Horizontal");
+            MoveMage();
+
+            SetAnimations();
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                //isJumping = true;
+                StartCoroutine(JumpMage());
+            }
+        }
+                    
     }
 
     
 
     void MoveMage()
-    {
-        /*
-        if (_mageAttack.isAttacking == false)
-        {
-            mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
-
-            if (touchRun < 0 && facingRight || touchRun > 0 && !facingRight)
-            {
-                Flip();
-            }
-        }
-        */
+    {        
         mageRigidbody2D.velocity = new Vector2(moveSpeed * touchRun, mageRigidbody2D.velocity.y);
 
         if (touchRun < 0 && facingRight || touchRun > 0 && !facingRight)
@@ -100,7 +97,7 @@ public class MageController : MonoBehaviour
             yield return new WaitForSeconds(0.30f);            
             antecipateJump = false;           
             mageRigidbody2D.velocity = Vector2.up * jumpForce;
-            isJumping = true;
+            //isJumping = true;
         }        
     }
 
