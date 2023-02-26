@@ -29,6 +29,6 @@ public class PlatformController : MonoBehaviour
             pointDestiny = pointA.position;
         }
 
-        platform.position = Vector3.MoveTowards(platform.position, pointDestiny, platformSpeed);
+        platform.position = Vector3.MoveTowards(platform.position, pointDestiny, platformSpeed * Time.deltaTime);
     }
 }

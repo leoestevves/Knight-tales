@@ -40,12 +40,7 @@ public class MageSkill : MonoBehaviour
     private void Skill()
     {
         anim.SetTrigger("skill");
-        cooldownTimer = 0;
-
-        
-        //LightningBalls
-        //lightningballs[FindLightningball()].transform.position = firePoint.position;
-        //lightningballs[FindLightningball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        cooldownTimer = 0;        
         
     }
 

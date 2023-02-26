@@ -44,19 +44,6 @@ public class Health : MonoBehaviour
             {
                 anim.SetTrigger("die");
                 
-
-                /*
-                //Player
-                if(GetComponent<MageController>() != null)
-                    GetComponent<MageController>().enabled = false;
-
-                //Enemy
-                if(GetComponentInParent<EnemyPatrol>() != null)
-                    GetComponentInParent<EnemyPatrol>().enabled = false;
-
-                if(GetComponent<MeleeEnemyWolf>() != null)
-                    GetComponent<MeleeEnemyWolf>().enabled = false;
-                */
                 //Deactivate all attached components
                 foreach (Behaviour component in components)
                     component.enabled = false;
@@ -67,15 +54,7 @@ public class Health : MonoBehaviour
             
         }
         
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage(1);
-        }
-    }
+    }        
 
     public void AddHealth(float _value)
     {
