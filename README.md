@@ -71,7 +71,7 @@ Gif do parallax background:
 <img src="ReadmeFiles/MageTales_Parallax_gif.gif" width="700px">
 </p>
 
-Na segunda parte do mapa o jogador entra em uma caverna, onde eu utilizei o segundo conceito diferente de cenário, que são as iluminações. Por padrão, a Unity já possui iluminação própria, porém é possível adicionar diferentes tipos de iluminação. Por ser uma caverna, a intensidade da iluminação global foi reduzida para que o ambiente ficasse mais escuro, além disso, adicionei diversas tochas pela caverna, todas elas possui uma iluminação chamada de Spot light, um tipo de luz que tem um alcance pequeno.
+Na segunda parte do mapa o jogador entra em uma caverna, onde eu utilizei o segundo conceito diferente de cenário, que são as iluminações. Por padrão, a Unity já possui iluminação própria, porém é possível adicionar diferentes tipos de iluminação. Por ser uma caverna, a intensidade da iluminação global foi reduzida para que o ambiente ficasse mais escuro, além disso, adicionei diversas tochas pela caverna, todas elas possuem uma iluminação chamada de Spot light, um tipo de luz que tem um alcance pequeno.
 Gif da entrada na caverna:
 <p align="center">
 <img src="ReadmeFiles/MageTales_Cave_gif.gif" width="600px">
@@ -97,7 +97,7 @@ Além disso, sempre fui adicionando no meu github cada atualização do projeto,
 
 ## Conclusão :snowman:
 
-Consegui aprender muito fazendo esse projeto, principalmente nos conceitos aplicados no parallax background e na iluminação, além de se aprofundar cada vez mais na Unity e programação em C#.
+Consegui aprender muito fazendo esse projeto, principalmente nos conceitos aplicados no parallax background e na iluminação, além de me aprofundar cada vez mais na Unity e programação em C#.
 
 Caso queira baixar apenas a pasta com o executável do jogo, eu estou disponibilizando o link para o meu google drive na aba "About".
 
