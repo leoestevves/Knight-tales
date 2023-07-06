@@ -13,7 +13,7 @@ This project has the objective to learn and practice game development, Unity and
 ## Introduction :bell:
 My idea with the Mage's Tales project was to take a lot of concepts I've been learning about game development, Unity and C#, and apply them to a single project. That way, I can learn more resources and be aware of which concepts I still need to evolve.
 
-## Aplication :mage:
+## Application :mage:
 The Mage's Tales project is a mini RPG-style 2d platform game where the player uses magic to defeat enemies. In this project, I decided to use several different concepts, the first part of the map uses the concept of parallax background, a background that moves along with the player, in practice it is as if the background had been placed throughout the entire map, but in reality it was only placed in the initial part of the map.
 Parallax background gif:
 <p align="center">
